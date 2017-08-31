@@ -56,35 +56,57 @@
     </div>
     
     <div class="buttons">
-      <a id ="add-npc" class= "btn-floating btn-large waves-effect waves-light red"><i class="material-icons">group_add</i></a>
-      <a id ="add-player" class= "btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">face</i></a>
+      <!-- maybe added on another version
+      <a id ="add-npc" class= "btn-floating btn-large waves-effect waves-light red"><i class="material-icons">adb</i></a>
+      -->
+      <a id ="add-char" class= "btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">group_add</i></a>
       <a id ="save-party" class= "btn-floating btn-large waves-effect waves-light orange tooltipped" data-position="bottom" data-delay="50" data-tooltip="Save Party"><i class="material-icons">save</i></a>
       <a id ="full-roller" class= "btn-floating btn-large waves-effect waves-light cyan accent-4 btn modal-trigger" href="roller.html"><i class="material-icons"><img src="dice.png"></i></a>
     </div>
 
-    <form class="player-form" onsubmit="managerController.inputChar(event)">
-      <h5>Add a Player</h5>
-      <div class="input-field player">
+    <form class="char-form" onsubmit="managerController.inputChar(event)">
+      <h5>Add Character</h5>
+      <div class="input-field char">
         <i class="material-icons prefix">person</i>
-        <input class="name" id="player" type="text">
-        <label for="player">Character Name</label>
+        <input class="name" id="char" type="text">
+        <label for="char">Character Name</label>
       </div>
+
+      <div class="input-field">
+        <i class="material-icons prefix">gavel</i>
+        <select class="type">
+          <option disabled selected>Character Type</option>
+          <option value="ally">Ally</option>
+          <option value="boss">Boss</option>
+          <option value="melee">Melee</option>
+          <option value="ranged">Ranged</option>
+          <option value="caster">Caster</option>
+        </select>
+      </div>
+      
+      <div class="char-advantage">
+        <p>
+          <input class="filled-in" type="checkbox" id="char-advantage" value="adv"/>
+          <label for="char-advantage">Advantage </label>
+        </p>
+        <p>
+          <input class="filled-in"type="checkbox" id="char-disadvantage" value="disadv"/>
+          <label for="char-disadvantage">disadvantage</label>
+        </p>
+      </div>
+        
       <div class="input-field add-bonus">
         <i class="material-icons prefix">add_circle</i>
-        <input class="bonus" id="player-bonus" type="number">
-        <label for="player-bonus">Add Bonus</label>
+        <input class="bonus" id="char-bonus" type="number">
+        <label for="char-bonus">Add Bonus</label>
       </div>
-      <div class="player-advantage">
-        <input class="filled-in" type="checkbox" id="player-advantage" value="adv"/>
-        <label for="player-advantage">Advantage </label>
-        <input class="filled-in"type="checkbox" id="player-disadvantage" value="disadv"/>
-        <label for="player-disadvantage">disadvantage</label>
-      </div>
-      <button class="create-player btn waves-effect waves-light">Create
+
+
+      <button class="create-char btn waves-effect waves-light">Create
         <i class="material-icons right">playlist_add</i>
       </button>
     </form>
-    
+    <!-- maybe added on another version (theses functions will be centrilized in one form, for now)
     <form class="npc-form" onsubmit="managerController.inputChar(event)">
       <h5>Add a NPC</h5>
       <div class="npc-class">
@@ -120,7 +142,7 @@
         <i class="material-icons right">playlist_add</i>
       </button>
     </form> 
-  
+    -->
   </main>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js'></script>

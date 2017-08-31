@@ -1,9 +1,9 @@
 class ManagerController{
+
   constructor(){
     
-    
     this.name = $(".name");
-    this.type = "test";
+    this.type = $(".type);
     this.bonus = $(".bonus");
 
     this.view = new View($(".table-div"));
@@ -11,6 +11,7 @@ class ManagerController{
     this.view.update(this.party);
     console.log(this.view);
   }
+
   createChar(){
     return new Character(
       this.name.val(),
@@ -19,6 +20,7 @@ class ManagerController{
       this.type
     );
   }
+
   inputChar(event){
     event.preventDefault();
 

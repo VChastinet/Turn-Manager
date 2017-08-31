@@ -75,30 +75,39 @@ img{
   width: 2.6rem;
   height: 3rem;
 }
+.char-form{
+  width: 20rem;
+}
 
+.char{
+  max-width: 15rem;
+  margin-bottom: -1.5rem;
+}
+.type{
+  max-width: 8rem;
+}
+.add-bonus{
+  width: 10rem;
+}
+.char-advantage{
+  float: right;
+}
+.create-char{
+  margin: 2rem 0 0 3rem;
+}
+/*
 .npc-form{
   width: 18rem;
 }
-.player-form{
-  width: 18rem;
-  display: none;
+.create-npc{
+  margin: 2rem 0 0 3rem;
 }
-.npc-class, #class{
+.npc-class{
   width: 10rem;
   height: 2rem;
   margin-top: 2rem;
 }
-
 .npc-checkbox{
   float: right;
 }
-.add-bonus{
-  width: 10rem;
-  margin-top: 3rem;
-}
-.create-npc, .create-player{
-  margin: 2rem 0 0 3rem;
-}
-.player{
-  margin-bottom: -2.5rem;
-}
+*/
