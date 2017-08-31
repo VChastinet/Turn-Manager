@@ -3,13 +3,13 @@ class ManagerController{
   constructor(){
     
     this.name = $(".name");
-    this.type = $(".type);
+    this.type = $("#type");
     this.bonus = $(".bonus");
 
     this.view = new View($(".table-div"));
     this.party = new party();
     this.view.update(this.party);
-    console.log(this.view);
+    console.log(this.party);
   }
 
   createChar(){
@@ -17,7 +17,7 @@ class ManagerController{
       this.name.val(),
       this.bonus.val(),
       $("input:checked").val(),
-      this.type
+      this.type.val()
     );
   }
 

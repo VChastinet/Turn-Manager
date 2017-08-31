@@ -1,11 +1,10 @@
 class Character {
-  constructor(name, bonus, advantage, type="player"){
+  constructor(name, bonus, advantage, type){
     this.name = name;
     this.type = type;
-    this.bonus = bonus
+    this.bonus = bonus;
     this.advantage = advantage;
     this.init = this.initiative+Number(this.bonus);
-
     
   }
   get initiative(){
@@ -18,7 +17,7 @@ class party{
     this.characters = [];
   }
   add(char){
-    
+    char.advantage=undefined;
     this.characters.push(char);
     this.characters.sort((a,b) => b.init - a.init);
   }
