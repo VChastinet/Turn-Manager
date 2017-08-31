@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Projeto Rolador de dados</title>
+  <link href="https://fonts.googleapis.com/css?family=Overlock:900i|Oswald" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/roller.css">
+</head>
+
+<body>
+  <div id="rolador">
+	
+   <h1>Dice Roller</h1>
+	
+   <form action="">
+		 
+		 <div id="checkbox">
+			 <div class="checkbox">
+			   <input id="advantage" type="checkbox" value="adv">advantage
+		   </div>
+			 <div class="checkbox">
+			   <input id="disadvantage" type="checkbox" value="disadv">disadvantage
+			 </div>
+		 </div>
+		 
+		 <div class="form-group row">
+			 
+		   <div class="input-group col-xs-5 quant">
+         <span class="input-group-addon">Rolls:</span>
+         <input id="quant" type="number" class="form-control" value=1>
+		   </div>
+	   	 
+		   <div class="input-group col-xs-5 faces">
+         <span class="input-group-addon">Dice:</span>
+         <select id="faces" class="form-control">
+    	     <option value=4> D4
+    	     <option value=6> D6
+    		   <option value=8> D8
+    		   <option value=10> D10
+	  		   <option value=12> D12
+	  		   <option selected value=20> D20
+				   <option value=100> 100%
+  		   </select>
+		   </div>
+				 
+		   <div class="input-group col-xs-5">
+         <span class="input-group-addon"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></span>
+         <input id="bonus" type="number" class="form-control"value=0>
+		   </div>
+		 </div>
+		 
+   </form>
+	
+	 <div id="resultados" class="form-group">
+		
+		<p>Roll:</p>
+    <div  class="input-group resultBox">
+      <div id="resultBox" class="form-control"></div>
+			
+			<div class="input-group-btn">
+	      <button id="button" class="btn btn-default">
+		      <i class="fa fa-refresh fa-2x"></i>
+	      </button>
+	    </div>
+			
+	  </div>
+		
+		<p>Total:</p>
+		<div class="input-group totalBox">
+      <div id="totalBox" class="form-control"></div>
+		</div>
+		
+	  </div>
+
+		<a class="btn btn-md	btn-info" href="index.html">
+			<i class="fa fa-chevron-circle-left fa-2x pull-left"></i>
+			<span>Return</span>
+		</a>
+		
+	</div>
+	
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src='https://use.fontawesome.com/d5ea1bb7bc.js'></script>
+  <script src="js/roller.js"></script>
+
+</body>
+</html>

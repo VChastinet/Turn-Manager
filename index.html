@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>D&D Turn manager</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css?family=Overlock:900i|Oswald" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css'>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <main class="container">
+  
+    <div class="header">
+      <img class="logo" src="https://goo.gl/WwEWcW" alt="d and d logo">
+      <h1 class="header-text">Turn Manager</h1>
+    </div>
+    
+    <a class="btn-floating waves-effect waves-light red tooltipped" data-position="top" data-delay="50" data-tooltip="Load Party"><i class="material-icons">play_for_work</i></a>
+    
+    <div class="table-div">tabela aqui</div>
+    
+    <div class="roller">
+      <h4>Re-Roll</h4>
+      <div class="input-field select-char">
+        <select id="characters">
+          <optgroup label="Allies">
+          <option value="1">Option 1</option>
+        </optgroup>
+        <optgroup label="Enemies">
+          <option value="3">Option 3</option>
+        </optgroup>
+        </select>
+      </div>
+      
+      <div class="roll-advantage">
+        <p>
+        <input class="filled-in" type="checkbox" id="advantage" value="adv" />
+        <label for="advantage">advantage</label>
+        </p>
+        <p>
+        <input class="filled-in"type="checkbox" id="disadvantage" value="disadv"/>
+        <label for="disadvantage">disadvantage</label>
+        </p>
+      </div>
+  
+        <a id ="roll" class= "btn-floating waves-effect waves-light amber"><i class="material-icons">autorenew</i></a>
+      
+      <div class="result">
+        <output id="result-box"></output>
+        <output id="total-box"></output>
+      </div>
+    </div>
+    
+    <div class="buttons">
+      <a id ="add-npc" class= "btn-floating btn-large waves-effect waves-light red"><i class="material-icons">group_add</i></a>
+      <a id ="add-player" class= "btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">face</i></a>
+      <a id ="save-party" class= "btn-floating btn-large waves-effect waves-light orange tooltipped" data-position="bottom" data-delay="50" data-tooltip="Save Party"><i class="material-icons">save</i></a>
+      <a id ="full-roller" class= "btn-floating btn-large waves-effect waves-light cyan accent-4 btn modal-trigger" href="roller.html"><i class="material-icons"><img src="dice.png"></i></a>
+    </div>
+
+    <form class="player-form" onsubmit="managerController.inputChar(event)">
+      <h5>Add a Player</h5>
+      <div class="input-field player">
+        <i class="material-icons prefix">person</i>
+        <input class="name" id="player" type="text">
+        <label for="player">Character Name</label>
+      </div>
+      <div class="input-field add-bonus">
+        <i class="material-icons prefix">add_circle</i>
+        <input class="bonus" id="player-bonus" type="number">
+        <label for="player-bonus">Add Bonus</label>
+      </div>
+      <div class="player-advantage">
+        <input class="filled-in" type="checkbox" id="player-advantage" value="adv"/>
+        <label for="player-advantage">Advantage </label>
+        <input class="filled-in"type="checkbox" id="player-disadvantage" value="disadv"/>
+        <label for="player-disadvantage">disadvantage</label>
+      </div>
+      <button class="create-player btn waves-effect waves-light">Create
+        <i class="material-icons right">playlist_add</i>
+      </button>
+    </form>
+    
+    <form class="npc-form" onsubmit="managerController.inputChar(event)">
+      <h5>Add a NPC</h5>
+      <div class="npc-class">
+        <select class="name">
+            <option value="Ranged">Ranged</option>
+            <option value="Melee">Melee</option>
+            <option value="Caster">caster</option>
+        </select>
+      </div>
+    
+      <div class="npc-checkbox">
+        <p>
+          <input type="checkbox" id="ally"/>
+          <label for="ally">Ally</label>
+        </p>
+        <p>
+          <input type="checkbox" id="boss"/>
+          <label for="boss">Boss</label>
+        </p>
+      </div>
+      <div class="input-field add-bonus">
+        <i class="material-icons prefix">add_circle</i>
+        <input class="bonus" id="bonus" type="number">
+        <label for="bonus">Add Bonus</label>
+      </div>
+      <div class="npc-advantage">
+        <input class="filled-in" type="checkbox" id="npc-advantage" value="adv"/>
+        <label for="npc-advantage">Advantage </label>
+        <input class="filled-in"type="checkbox" id="npc-disadvantage" value="disadv"/>
+        <label for="npc-disadvantage">disadvantage</label>
+      </div>
+      <button class="create-npc btn waves-effect waves-light">Create
+        <i class="material-icons right">playlist_add</i>
+      </button>
+    </form> 
+  
+  </main>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js'></script>
+<script src="js/Functions.js"></script>
+<script src="js/Models.js"></script>
+<script src="js/Controller.js"></script>
+<script src="js/View.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

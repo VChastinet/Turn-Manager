@@ -1,0 +1,104 @@
+*{
+  box-sizing: border-box;
+  font-family: 'Oswald', sans-serif;
+}
+
+.container{
+  max-width: 40rem;
+}
+
+.header{
+  text-align: center;
+}
+.header + a{
+  float: right;
+}
+
+.header-text{
+  color: #E53C25;
+  font-family: 'overlock', cursive;
+}
+
+.logo{
+  width:12rem;
+  height: auto;
+  margin-bottom: -2rem;
+}
+
+.table{
+  max-width: 40rem;
+  margin-bottom: 2rem;
+}
+
+.roller{
+  float: right;
+  width: 15rem;
+  height: 22rem;
+  text-align: center;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 0 3rem 1.5rem 3rem;
+}
+
+.roll-advantage{
+  text-align:left;
+  margin: 1rem 0 2rem 0;
+}
+
+output{
+  border: 1px solid lightgray;
+  display: inline-block;
+  height: 2.5rem;
+  max-width: 8rem;
+  margin: auto;
+  margin: 1rem 0 .5rem 0;
+  padding-top: 0.8rem;
+}
+#result-box{
+  min-width: 4rem;
+  padding: .5rem;
+}
+
+#total-box{
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50px;
+}
+
+.buttons a{
+  margin-right: 1rem;
+}
+img{
+  padding-top: .67rem;
+  width: 2.6rem;
+  height: 3rem;
+}
+
+.npc-form{
+  width: 18rem;
+}
+.player-form{
+  width: 18rem;
+  display: none;
+}
+.npc-class, #class{
+  width: 10rem;
+  height: 2rem;
+  margin-top: 2rem;
+}
+
+.npc-checkbox{
+  float: right;
+}
+.add-bonus{
+  width: 10rem;
+  margin-top: 3rem;
+}
+.create-npc, .create-player{
+  margin: 2rem 0 0 3rem;
+}
+.player{
+  margin-bottom: -2.5rem;
+}
