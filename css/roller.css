@@ -45,19 +45,19 @@ h1{
 	background-color: #e8eaf6;
 	font-family: 'Oswald', sans-serif;
 }
-#resultBox, #totalBox {
+#result-box, #total-box {
 	font-size: 1.4em;
 	height: 4.2rem;
 	min-width: 6em;
 	max-width: 13em;
 	overflow: hidden;
 }
-#totalBox {
+#total-box {
 	border-radius: 3px;
 	text-align: center;
 	font-weight: bold;
 }
-.totalBox, .resultBox {
+.total-box, .result-box {
 	margin-left: 0;
 }
 #button {
