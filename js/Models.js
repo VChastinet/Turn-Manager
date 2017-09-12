@@ -17,8 +17,11 @@ class party{
     this.characters = [];
   }
   add(char){
-    char.advantage=undefined;
+    char.advantage="undefined";
     this.characters.push(char);
-    this.characters.sort((a,b) => b.init - a.init);
+  }
+  get fullParty(){
+    this.characters.sort((a,b) => a.init == b.init ? b.bonus - a.bonus : b.init - a.init);
+    return this.characters;
   }
 }

@@ -2,9 +2,62 @@
   box-sizing: border-box;
   font-family: 'Oswald', sans-serif;
 }
+@media not all and (min-width: 1400px){
+  .container{
+    max-width: 40rem;
+  }
+}
+@media(min-width: 1400px){
+  .container{
+    width: 100%;
+  }
+  .roller{
+    position: fixed;
+    right: 5%;
+    top:30%;
+  }
+  .char-form{
+    position: fixed;
+    top: 30%;
+  }
+  .buttons{
+    position: fixed;
+    top: 20%;
+  }
+  #load-party{
+    position: relative;
+    right: 25%;
+  }
+  .table-div{
+    margin-left: 30%;
+  }
+}
 
-.container{
-  max-width: 40rem;
+@media(min-width: 1700px){
+  .container{
+    width: 100%;
+  }
+  .roller{
+    position: fixed;
+    right: 15%;
+    top:30%;
+  }
+  .char-form{
+    position: fixed;
+    top: 30%;
+  }
+  .buttons{
+    position: fixed;
+    top: 20%;
+  }
+  #load-party{
+    position: relative;
+    right: 300px;
+  }
+  .table-div{
+    margin-left: 30%;
+  }
+
 }
 
 .header{
@@ -28,6 +81,26 @@
 .table{
   max-width: 40rem;
   margin-bottom: 2rem;
+  text-align: center;
+}
+td{
+  font-size: 1.3rem;
+}
+.remove{
+  color: #f44336;
+  cursor: pointer;
+}
+.kill button{
+  width: 40px;
+  text-align: center;
+  padding:0;
+}
+.kill img{
+  width: 2rem;
+  cursor: pointer;
+}
+#dead{
+  background-color: #d7ccc8;
 }
 
 .roller{

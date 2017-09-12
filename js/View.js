@@ -1,4 +1,4 @@
-class View {
+class ViewParty {
   constructor(element){
     this.element = element;
   }
@@ -11,18 +11,18 @@ class View {
         <th>Name/Class</th>
         <th>Type</th>
         <th>Initiative</th>
-        <th>Kill</th>
+        <th></th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-    ${model.characters.map(content=>`
+    ${model.map(content=>`
       <tr>
         <td>${content.name}</td>
         <td>${content.type}</td>
-        <td>${content.init}</td>
-        <td class="kill"><img src="death.png"></td>
-        <td><i class = "remove material-icons">delete</i></td>
+        <td>${content.init} (+${content.bonus})</td>
+        <td class="kill" onclick="killSwitch(this)"><button class="btn waves-effect waves-light orange">Kill</button></td>
+        <td><i class = "remove material-icons small" onclick="managerController.deleteMember(this)">delete</i><span hidden>${content._id}<span></td>
       </tr>
       `).join('')}
 
@@ -34,5 +34,8 @@ class View {
   update(model){
     return $(this.element).html(this.template(model));
   }
+}
 
+class ViewSelector{
+  
 }

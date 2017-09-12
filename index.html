@@ -2,6 +2,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
   <title>D&D Turn manager</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -19,18 +20,18 @@
       <h1 class="header-text">Turn Manager</h1>
     </div>
     
-    <a class="btn-floating waves-effect waves-light red tooltipped" data-position="top" data-delay="50" data-tooltip="Load Party"><i class="material-icons">play_for_work</i></a>
+    <a id="load-party" class="btn-floating waves-effect waves-light red tooltipped" data-position="top" data-delay="50" data-tooltip="Load Party"><i class="material-icons">play_for_work</i></a>
     
-    <div class="table-div">tabela aqui</div>
+    <div class="table-div"></div>
     
     <div class="roller">
       <h4>Re-Roll</h4>
       <div class="input-field select-char">
         <select id="characters">
-          <optgroup label="Allies">
+          <optgroup class="allies" label="Allies">
           <option value="1">Option 1</option>
         </optgroup>
-        <optgroup label="Enemies">
+        <optgroup class="enemies" label="Enemies">
           <option value="3">Option 3</option>
         </optgroup>
         </select>
@@ -98,7 +99,7 @@
         
       <div class="input-field add-bonus">
         <i class="material-icons prefix">add_circle</i>
-        <input class="bonus" id="char-bonus" type="number">
+        <input class="bonus" id="char-bonus" type="number" value=0>
         <label for="char-bonus">Add Bonus</label>
       </div>
 
@@ -152,5 +153,6 @@
 <script src="js/Controller.js"></script>
 <script src="js/View.js"></script>
 <script src="js/index.js"></script>
+<script src="js/HttpService.js"></script>
 </body>
 </html>
