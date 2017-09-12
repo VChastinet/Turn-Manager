@@ -22,7 +22,7 @@ class ViewParty {
         <td>${content.type}</td>
         <td>${content.init} (+${content.bonus})</td>
         <td class="kill" onclick="killSwitch(this)"><button class="btn waves-effect waves-light orange">Kill</button></td>
-        <td><i class = "remove material-icons small" onclick="managerController.deleteMember(this)">delete</i><span hidden>${content._id}<span></td>
+        <td><i class = "remove material-icons small" onclick="managerController.deleteMember(this)">delete</i><span></td>
       </tr>
       `).join('')}
 

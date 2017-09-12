@@ -24,8 +24,12 @@ class ManagerController{
     event.preventDefault();
 
     this.party.add(this.createChar());
+    this.viewParty.update(this.party.fullParty);
+    /*
+    only when the database work online
     this.saveParty();
     this.loadParty();
+    */
   }
   saveParty(){
     return new HttpService()
@@ -47,15 +51,18 @@ class ManagerController{
   }
 
   deleteMember(element){
-    let criteria = $(element).parent().find("span").text();
+    //let criteria = $(element).parent().find("span").text();
+    let criteria = $(element).closest("tr").find("td:first-child").text();
     let newParty = [];
+    console.log(criteria);
 
     this.party.characters.forEach(char => {
-      if(char._id !== criteria){
+      //if(char._id !== criteria){
+        if(char.name != criteria){
         newParty.push(char);
       }
     });
-    this.party.characters = newParty
-    this.viewParty.update(this.party.fullParty);
+    this.party.characters = newParty;
+    $(element).closest("tr").remove();
   }
 }
