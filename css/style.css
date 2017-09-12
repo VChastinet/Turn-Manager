@@ -6,15 +6,23 @@
   .container{
     max-width: 40rem;
   }
+  .re-roller-btn{
+    float: right;
+  }
 }
 @media(min-width: 1400px){
   .container{
     width: 100%;
   }
-  .roller{
+  .re-roller{
+    width: 15rem;
+    height: 22rem;
     position: fixed;
     right: 5%;
     top:30%;
+  }
+  .re-roller-btn{
+    display: none;
   }
   .char-form{
     position: fixed;
@@ -34,30 +42,12 @@
 }
 
 @media(min-width: 1700px){
-  .container{
-    width: 100%;
-  }
-  .roller{
-    position: fixed;
+  .re-roller{
     right: 15%;
-    top:30%;
-  }
-  .char-form{
-    position: fixed;
-    top: 30%;
-  }
-  .buttons{
-    position: fixed;
-    top: 20%;
   }
   #load-party{
-    position: relative;
     right: 300px;
   }
-  .table-div{
-    margin-left: 30%;
-  }
-
 }
 
 .header{
@@ -103,10 +93,8 @@ td{
   background-color: #d7ccc8;
 }
 
-.roller{
+.re-roller{
   float: right;
-  width: 15rem;
-  height: 22rem;
   text-align: center;
   border: 1px solid lightgray;
   border-radius: 10px;
