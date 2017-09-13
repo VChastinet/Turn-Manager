@@ -19,7 +19,7 @@ class ManagerController{
     let advCheck = $("input:checked").val();
     let bonus = this.bonus.val();
     
-    name = this.validate.name();
+    name = this.validate.name(name);
 
     if(!this.validate.type(type)){
       return
