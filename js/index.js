@@ -1,10 +1,12 @@
 function applyModal(){
-  if (screen.width > 1400) {
-    $("#re-roller").removeClass("modal");
-    $("#re-roller div:first-child").removeClass("modal-content");
+  
+  if (window.innerWidth > 1400) {
+    $("#re-roller").removeClass("modal").removeAttr("style");
+    $("#re-roller-content").removeClass("modal-content");
+    
   } else{
     $("#re-roller").addClass("modal");
-    $("#re-roller div:first-child").addClass("modal-content");
+    $("#re-roller-content").addClass("modal-content");
   }
 }
 

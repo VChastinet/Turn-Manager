@@ -10,11 +10,14 @@
     float: right;
   }
 }
+/*end media*/
+
 @media(min-width: 1400px){
   .container{
     width: 100%;
   }
-  .re-roller{
+  .re-roller{    
+    padding: 0 3rem 1.5rem 3rem;
     width: 15rem;
     height: 22rem;
     position: fixed;
@@ -40,6 +43,7 @@
     margin-left: 30%;
   }
 }
+/*end media*/
 
 @media(min-width: 1700px){
   .re-roller{
@@ -49,6 +53,7 @@
     right: 300px;
   }
 }
+/*end media*/
 
 .header{
   text-align: center;
@@ -94,11 +99,10 @@ td{
 }
 
 .re-roller{
-  float: right;
+  max-width: 18rem;
   text-align: center;
   border: 1px solid lightgray;
   border-radius: 10px;
-  padding: 0 3rem 1.5rem 3rem;
 }
 
 .roll-advantage{
