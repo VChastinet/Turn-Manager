@@ -9,14 +9,27 @@ class ManagerController{
     this.viewParty = new ViewParty($(".table-div"));
     this.party = new party();
     this.viewParty.update(this.party.fullParty);
+
+    this.validate = new Validation;
   }
 
   createChar(){
+    let type = this.type.val();
+    let name = this.name.val();
+    let advCheck = $("input:checked").val();
+    let bonus = this.bonus.val();
+    
+    name = this.validate.name();
+
+    if(!this.validate.type(type)){
+      return
+    }
+    
     return new Character(
-      this.name.val(),
-      this.bonus.val(), 
-      $("input:checked").val(),
-      this.type.val()
+      name,
+      bonus, 
+      advCheck,
+      type
     );
   }
 
@@ -54,7 +67,6 @@ class ManagerController{
     //let criteria = $(element).parent().find("span").text();
     let criteria = $(element).closest("tr").find("td:first-child").text();
     let newParty = [];
-    console.log(criteria);
 
     this.party.characters.forEach(char => {
       //if(char._id !== criteria){

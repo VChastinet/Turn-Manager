@@ -16,7 +16,7 @@
   <main class="container">
   
     <div class="header">
-      <img class="logo" src="https://goo.gl/WwEWcW" alt="d and d logo">
+      <img class="logo" src="https://vchastinet.github.io/Turn-Manager/DeD_logo.png" alt="d and d logo">
       <h1 class="header-text">Turn Manager</h1>
     </div>
     
@@ -78,14 +78,15 @@
 
       <div class="input-field">
         <i class="material-icons prefix">gavel</i>
+        <span class="validate-type badge z-depth-3" >You must choose a type</span>
         <select id="type">
           <option disabled selected>Character Type</option>
-          <option value="ally">Player</option>
-          <option value="ally">Ally</option>
-          <option value="boss">Boss</option>
-          <option value="melee">Melee</option>
-          <option value="ranged">Ranged</option>
-          <option value="caster">Caster</option>
+          <option value="Player">Player</option>
+          <option value="Ally">Ally</option>
+          <option value="Boss">Boss</option>
+          <option value="Melee">Melee</option>
+          <option value="Ranged">Ranged</option>
+          <option value="Caster">Caster</option>
         </select>
       </div>
       
@@ -102,7 +103,7 @@
         
       <div class="input-field add-bonus">
         <i class="material-icons prefix">add_circle</i>
-        <input class="bonus" id="char-bonus" type="number" value=0>
+        <input class="bonus" id="char-bonus" type="number">
         <label for="char-bonus">Add Bonus</label>
       </div>
 

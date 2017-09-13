@@ -147,6 +147,13 @@ img{
 #type{
   max-width: 8rem;
 }
+.validate-type{
+  background-color: #ef9a9a;
+  text-transform: uppercase;
+  width: 70%;
+  border-radius: 10px;
+  display: none;
+}
 .add-bonus{
   width: 10rem;
 }
