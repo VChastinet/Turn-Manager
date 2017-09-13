@@ -24,6 +24,8 @@ class ManagerController{
     if(!this.validate.type(type)){
       return
     }
+
+    $(".create-char").click(formReset());
     
     return new Character(
       name,

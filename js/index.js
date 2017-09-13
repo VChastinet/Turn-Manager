@@ -18,6 +18,12 @@ $(function(){
 
 let managerController = new ManagerController();
 
+function formReset(){
+  setTimeout(() =>{
+    document.querySelector(".char-form").reset()
+  }, 50);
+} 
+
 $("#add-char").click(()=>$(".char-form").stop().slideToggle());
 
 $("#save-party").click(() => {
