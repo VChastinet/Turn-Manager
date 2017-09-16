@@ -23,6 +23,8 @@ let managerController = new ManagerController();
 function formReset(){
   setTimeout(() =>{
     document.querySelector(".char-form").reset()
+    $(".validate-name").slideUp(100);
+    $(".validate-type").slideUp(100);
   }, 50);
 } 
 
@@ -57,7 +59,7 @@ $("[value='disadv']").change(function() {
 function killSwitch(element){
       
   if ($(element).text() == "Kill"){
-    $(element).html('<img src="https://vchastinet.github.io/Turn-Manager/death.png">')
+    $(element).html('<img src="media/death.png">')
     $(element).closest("tr").attr("id", "dead");
   } else{
     $(element).html('<button class="btn waves-effect waves-light orange">Kill</button>')

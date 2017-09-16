@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html >
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
-  <title>D&D Turn manager</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link href="https://fonts.googleapis.com/css?family=Overlock:900i|Oswald" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css'>
-  <link rel="stylesheet" href="css/style.css">
+
+  <title>RPG Turn manager</title>
+
+  <link type="image/x-icon" rel="icon" href="media/sword.png" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Overlock:900i">
+  <link type="text/css" rel="stylesheet" href= "css/materialize.min.css" media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="css/style.css"/>
 </head>
 
 <body>
   <main class="container">
   
     <div class="header">
-      <img class="logo" src="https://vchastinet.github.io/Turn-Manager/DeD_logo.png" alt="d and d logo">
+      <img class="logo" src="media/DeD_logo.png" alt="d and d logo">
       <h1 class="header-text">Turn Manager</h1>
     </div>
     
@@ -64,7 +65,7 @@
       -->
       <a id ="add-char" class= "btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">group_add</i></a>
       <a id ="save-party" class= "btn-floating btn-large waves-effect waves-light orange tooltipped" data-position="bottom" data-delay="50" data-tooltip="Save Party"><i class="material-icons">save</i></a>
-      <a id ="full-roller" class= "btn-floating btn-large waves-effect waves-light cyan accent-4 btn modal-trigger" href="roller.html"><i class="material-icons"><img src="dice.png"></i></a>
+      <a id ="full-roller" class= "btn-floating btn-large waves-effect waves-light cyan accent-4 btn modal-trigger" href="roller.html"><i class="material-icons"><img src="media/dice.png"></i></a>
       <a class="re-roller-btn btn-floating btn-large waves-effect waves-light amber modal-trigger" href="#re-roller"><i class="material-icons">autorenew</i></a>
     </div>
 
@@ -72,11 +73,11 @@
       <h5>Add Character</h5>
       <div class="input-field char">
         <i class="material-icons prefix">person</i>
+        <span class="validate-name badge z-depth-3" ></span>
         <input class="name" id="char-name" type="text">
         <label for="char-name">Character Name</label>
       </div>
-
-      <div class="input-field">
+      <div class="input-field type">
         <i class="material-icons prefix">gavel</i>
         <span class="validate-type badge z-depth-3" >You must choose a type</span>
         <select id="type">
@@ -150,13 +151,13 @@
     </form> 
     -->
   </main>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js'></script>
-<script src="js/Functions.js"></script>
-<script src="js/Models.js"></script>
-<script src="js/Controller.js"></script>
-<script src="js/View.js"></script>
-<script src="js/index.js"></script>
-<script src="js/HttpService.js"></script>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/Functions.js"></script>
+<script type="text/javascript" src="js/Models.js"></script>
+<script type="text/javascript" src="js/Controller.js"></script>
+<script type="text/javascript" src="js/View.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/HttpService.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 *{
   box-sizing: border-box;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Oswald', 'roboto';
 }
 @media not all and (min-width: 1400px){
   .container{
@@ -64,7 +64,7 @@
 
 .header-text{
   color: #E53C25;
-  font-family: 'overlock', cursive;
+  font-family: 'overlock', 'roboto';
 }
 
 .logo{
@@ -77,6 +77,9 @@
   max-width: 40rem;
   margin-bottom: 2rem;
   text-align: center;
+}
+th{
+  font-weight: normal;
 }
 td{
   font-size: 1.3rem;
@@ -152,11 +155,23 @@ img{
 #type{
   max-width: 8rem;
 }
+.type:after{
+  content: "";
+}
 .validate-type{
   background-color: #ef9a9a;
   text-transform: uppercase;
   width: 70%;
   border-radius: 10px;
+  display: none;
+}
+.validate-name{
+  background-color: #ef9a9a;
+  text-transform: uppercase;
+  width: 80%;
+  border-radius: 10px;
+  position: relative;
+  left: 6rem;
   display: none;
 }
 .add-bonus{

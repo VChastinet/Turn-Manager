@@ -8,7 +8,7 @@ class ViewParty {
     <table class="table striped">
     <thead>
       <tr>
-        <th>Name/Class</th>
+        <th>Name</th>
         <th>Type</th>
         <th>Initiative</th>
         <th></th>
