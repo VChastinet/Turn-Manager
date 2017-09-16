@@ -119,9 +119,12 @@ output{
   display: inline-block;
   height: 2.5rem;
   max-width: 8rem;
+  
+}
+.result{
   margin: auto;
-  margin: 1rem 0 .5rem 0;
-  padding-top: 0.8rem;
+  padding-top: .5rem;
+  
 }
 #result-box{
   min-width: 4rem;

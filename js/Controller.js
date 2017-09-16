@@ -5,46 +5,53 @@ class ManagerController{
     this.name = $(".name");
     this.type = $("#type");
     this.bonus = $(".bonus");
+    this.member = $("#characters");
 
     this.viewParty = new ViewParty($(".table-div"));
+    this.viewSelector = new ViewSelector($("#characters"));
     this.party = new party();
     this.viewParty.update(this.party.fullParty);
+    this.viewSelector.update(this.party.fullParty);
   }
 
   createChar(){
     let type = this.type.val();
     let name = this.name.val();
-    let advCheck = $("input:checked").val();
+    let advCheck = $("form input:checked").val();
     let bonus = this.bonus.val();
-    console.log(name);
-    console.log(type);
 
     if(!Validation.type(type) || !Validation.name(name, type)){
       return
+    } else {
+      name = Validation.nameBlank(name);
+      $(".create-char").click(formReset());
+      return new Character(
+        name,
+        bonus, 
+        advCheck,
+        type
+      );
     }
-
-    name = Validation.nameBlank(name);
-
-    $(".create-char").click(formReset());
-    
-    return new Character(
-      name,
-      bonus, 
-      advCheck,
-      type
-    );
   }
 
   inputChar(event){
     event.preventDefault();
 
-    this.party.add(this.createChar());
-    this.viewParty.update(this.party.fullParty);
-    /*
-    only when the database work online
-    this.saveParty();
-    this.loadParty();
-    */
+    if(!this.createChar()){
+      return
+
+    } else {
+      this.party.add(this.createChar());
+      this.viewParty.update(this.party.fullParty);
+      this.viewSelector.update(this.party.fullParty);
+      $("#characters").material_select();
+
+      /*
+      only when the database work online
+      this.saveParty();
+      this.loadParty();
+      */
+    }
   }
   saveParty(){
     return new HttpService()
@@ -77,6 +84,27 @@ class ManagerController{
       }
     });
     this.party.characters = newParty;
-    $(element).closest("tr").remove();
+    this.viewParty.update(this.party.fullParty);
+    this.viewSelector.update(this.party.fullParty);
+    $("#characters").material_select();
+  }
+
+  reRoll(){
+
+    this.party.characters.forEach(char => {
+
+      if (char.name == this.member.val()){
+
+        let newAdvCheck = $(".re-roller input:checked").val();
+        let newInit = roller(Number(char.bonus), newAdvCheck);
+
+        char.init = newInit+Number(char.bonus);
+        char.advantage = newAdvCheck;
+
+      }
+      this.viewParty.update(this.party.fullParty);
+      
+    });
+
   }
 }

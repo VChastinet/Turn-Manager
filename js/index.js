@@ -40,6 +40,8 @@ $("#load-party").click(() => {
   alert("let the party start.");
 });
 
+$("#re-roll").click(() => managerController.reRoll());
+
 $("[value='adv']").change(function() {
     if(this.checked){
       $(this).closest("div").find("[value='disadv']").prop("disabled", true); 

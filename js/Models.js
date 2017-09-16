@@ -18,9 +18,9 @@ class party{
     this.characters = [];
   }
   add(char){
-    char.advantage="undefined";
     this.characters.push(char);
   }
+
   get fullParty(){
     this.characters.sort((a,b) => a.init == b.init ? b.bonus - a.bonus : b.init - a.init);
     return this.characters;
@@ -33,7 +33,7 @@ class Validation{
     let x = Math.round(Math.random() * (57 - 48) + 48);
     let y = Math.round(Math.random() * (57 - 48) + 48);
     if(!name){
-      name = "Npc " + "- "+String.fromCharCode(x)+String.fromCharCode(y);
+      name = "Npc" + "_"+String.fromCharCode(x)+String.fromCharCode(y);
     }
     return name;
   }

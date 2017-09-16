@@ -37,5 +37,35 @@ class ViewParty {
 }
 
 class ViewSelector{
-  
+
+  constructor(element){
+    this.element = element;
+  }
+
+  template(model){
+      return `
+      <optgroup class="allies" label="Allies">
+        ${model.map(content => {
+          
+          if(content.type == "Ally" || content.type == "Player"){
+            return `<option value="${content.name}">${content.name}</option>`
+          }
+
+        })} 
+      </optgroup>
+      <optgroup class="enemies" label="Enemies">
+        ${"empty"/*model.map(content => {
+
+          if(content.type != "Ally" && content.type != "Player"){
+           return `<option value=${content.name}>${content.name}</option>`
+          }
+          
+        })*/}
+      </optgroup>
+    `
+  }
+
+  update(model){
+    return $(this.element).html(this.template(model));
+  }
 }
