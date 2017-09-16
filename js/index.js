@@ -59,7 +59,7 @@ $("[value='disadv']").change(function() {
 function killSwitch(element){
       
   if ($(element).text() == "Kill"){
-    $(element).html('<img src="media/death.png">')
+    $(element).html('<img src="/media/death.png">')
     $(element).closest("tr").attr("id", "dead");
   } else{
     $(element).html('<button class="btn waves-effect waves-light orange">Kill</button>')
