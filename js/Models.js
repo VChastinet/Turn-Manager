@@ -29,7 +29,7 @@ class party{
 
 class Validation{
 
-  name(name){
+  static nameBlank(name){
     let x = Math.round(Math.random() * (57 - 48) + 48);
     let y = Math.round(Math.random() * (57 - 48) + 48);
     if(!name){
@@ -38,12 +38,25 @@ class Validation{
     return name;
   }
 
-  type(type){
+  static name(name, type){
+    if(type =="Boss" || type == "Player"){
+      if(!name){
+        $(".validate-name").text(`A ${type} must have a name`)
+        $(".validate-name").slideDown(100);
+        return false;
+      } else{
+        return true;
+      }
+    } else{
+      return true;
+    }
+  }
+
+  static type(type){
     if(!type){
       $(".validate-type").slideDown(100);
       return false;
     } else{
-      $(".validate-type").slideUp(100);
       return true;
     }
   }

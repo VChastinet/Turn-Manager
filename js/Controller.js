@@ -9,8 +9,6 @@ class ManagerController{
     this.viewParty = new ViewParty($(".table-div"));
     this.party = new party();
     this.viewParty.update(this.party.fullParty);
-
-    this.validate = new Validation;
   }
 
   createChar(){
@@ -18,12 +16,14 @@ class ManagerController{
     let name = this.name.val();
     let advCheck = $("input:checked").val();
     let bonus = this.bonus.val();
-    
-    name = this.validate.name(name);
+    console.log(name);
+    console.log(type);
 
-    if(!this.validate.type(type)){
+    if(!Validation.type(type) || !Validation.name(name, type)){
       return
     }
+
+    name = Validation.nameBlank(name);
 
     $(".create-char").click(formReset());
     
