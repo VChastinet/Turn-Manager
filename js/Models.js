@@ -57,6 +57,7 @@ class Validation{
       $(".validate-type").slideDown(100);
       return false;
     } else{
+      $(".validate-type").slideUp(100);
       return true;
     }
   }
