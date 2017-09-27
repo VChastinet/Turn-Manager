@@ -1,6 +1,6 @@
 
 function singleRoll(dice, bonus) {
-	let result = Math.floor(Math.random() * dice) + 1;
+	let result = Math.ceil(Math.random() * dice);
 	return result;
 }
 

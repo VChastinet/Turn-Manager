@@ -24,7 +24,8 @@ $(".dropdown-button").dropdown();
 
 function formReset(){
   setTimeout(() =>{
-    document.querySelector(".char-form").reset()
+    document.querySelector(".char-form").reset();
+    $("[type='checkbox']").prop("disabled", false)
     $(".validate-name").slideUp(100);
     $(".validate-type").slideUp(100);
   }, 50);
@@ -32,15 +33,15 @@ function formReset(){
 
 $("#add-char").click(()=>$(".char-form").stop().slideToggle());
 
-$("#save-party").click(() => {
-  managerController.saveParty();
-  alert("The party is resting in the tavern.");
-});
+// $("#save-party").click(() => {
+//   managerController.saveParty();
+//   alert("The party is resting in the tavern.");
+// });
 
-$("#load-party").click(() => {
-  managerController.loadParty();
-  alert("let the party start.");
-});
+// $("#load-party").click(() => {
+//   managerController.loadParty();
+//   alert("let the party start.");
+// });
 
 $("#re-roll").click(() => managerController.reRolling());
 

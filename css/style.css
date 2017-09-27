@@ -32,6 +32,7 @@
     display: none;
   }
   .char-form{
+    display: none;
     position: fixed;
     top: 30%;
   }
