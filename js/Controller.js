@@ -7,11 +7,16 @@ class ManagerController{
     this.bonus = $(".bonus");
     this.member = $("#characters");
 
-    this.viewParty = new ViewParty($(".table-div"));
-    this.viewSelector = new ViewSelector($("#characters"));
-    this.party = new party();
-    this.viewParty.update(this.party.fullParty);
-    this.viewSelector.update(this.party.fullParty);
+    //data binding
+    this.party = new Bind(
+      new party(),
+      ['add', 'deleteMember', 'deleteAll', 'deleteEnemies', 'reRoll'],
+      new ViewParty($(".table-div")),
+      new ViewSelector($("#characters"))  
+      );
+    //end
+
+
   }
 
   createChar(){
@@ -42,10 +47,7 @@ class ManagerController{
 
     } else {
       this.party.add(this.createChar());
-      this.viewParty.update(this.party.fullParty);
-      this.viewSelector.update(this.party.fullParty);
-      $("#characters").material_select();
-
+      
       /*
       only when the database work online
       this.saveParty();
@@ -53,58 +55,42 @@ class ManagerController{
       */
     }
   }
-  saveParty(){
-    return new HttpService()
-      .post("/party", this.party.fullParty)
-      .then(() => console.log("successfully saved."))
-      .catch(error => alert("the dragon atacked, you can't rest now: " + error));
-  }
-
-  loadParty(){
-    return new HttpService()
-    .get("/party")
-    .then((party) => {
-      this.party.characters = party
-      this.viewParty.update(this.party.fullParty);
-
-      console.log("successfully loaded.");
-    })
-    .catch((error) => alert("The party has fallen" + error));
-  }
-
-  deleteMember(element){
-    //let criteria = $(element).parent().find("span").text();
+  clearMember(element){
     let criteria = $(element).closest("tr").find("td:first-child").text();
-    let newParty = [];
-
-    this.party.characters.forEach(char => {
-      //if(char._id !== criteria){
-        if(char.name != criteria){
-        newParty.push(char);
-      }
-    });
-    this.party.characters = newParty;
-    this.viewParty.update(this.party.fullParty);
-    this.viewSelector.update(this.party.fullParty);
-    $("#characters").material_select();
+    
+    this.party.deleteMember(criteria);
+  }
+  
+  clearAll(){
+    this.party.deleteAll();
   }
 
-  reRoll(){
-
-    this.party.characters.forEach(char => {
-
-      if (char.name == this.member.val()){
-
-        let newAdvCheck = $(".re-roller input:checked").val();
-        let newInit = roller(Number(char.bonus), newAdvCheck);
-
-        char.init = newInit+Number(char.bonus);
-        char.advantage = newAdvCheck;
-
-      }
-      this.viewParty.update(this.party.fullParty);
-      
-    });
-
+  clearEnemies(){
+    this.party.deleteEnemies();
   }
+
+  
+  reRolling(){
+    
+    this.party.reRoll(this.member);
+    
+  }
+      // saveParty(){
+      //   return new HttpService()
+      //     .post("/party", this.party.fullParty)
+      //     .then(() => console.log("successfully saved."))
+      //     .catch(error => alert("the dragon atacked, you can't rest now: " + error));
+      // }
+    
+      // loadParty(){
+      //   return new HttpService()
+      //   .get("/party")
+      //   .then((party) => {
+      //     this.party.characters = party
+      //     this.viewParty.update(this.party.fullParty);
+    
+      //     console.log("successfully loaded.");
+      //   })
+      //   .catch((error) => alert("The party has fallen" + error));
+      // }
 }
