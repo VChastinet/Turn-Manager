@@ -16,8 +16,9 @@
   .container{
     width: 100%;
   }
-  form{
-    z-index: -1;
+  .buttons{
+    position: relative;
+    z-index: 200;
   }
   .re-roller{    
     padding: 0 3rem 1.5rem 3rem;
