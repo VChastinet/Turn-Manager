@@ -39,6 +39,20 @@ class party{
 
     this.characters.forEach(char => {
 
+      if ("allies" == criteria.val()){
+        if(char.type == "Player" || char.type == "Ally"){
+          let newInit = roller(Number(char.bonus));
+          char.init = newInit+Number(char.bonus);
+        }
+      }
+
+      if ("enemies" == criteria.val()){
+        if(char.type != "Player" && char.type != "Ally"){
+          let newInit = roller(Number(char.bonus));
+          char.init = newInit+Number(char.bonus);
+        }
+      }
+
       if (char.name == criteria.val()){
 
         let newAdvCheck = $(".re-roller input:checked").val();
@@ -57,10 +71,8 @@ class party{
 class Validation{
 
   static nameBlank(name){
-    let x = Math.round(Math.random() * (57 - 48) + 48);
-    let y = Math.round(Math.random() * (57 - 48) + 48);
     if(!name){
-      name = "Npc" + "_"+String.fromCharCode(x)+String.fromCharCode(y);
+      name = Names.getName()+"<sup>(NPC)</sup>";
     }
     return name;
   }

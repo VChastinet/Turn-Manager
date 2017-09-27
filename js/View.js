@@ -45,22 +45,24 @@ class ViewSelector{
   template(model){
       return `
       <optgroup class="allies" label="Allies">
+      <option value="allies">All Allies</option>
         ${model.fullParty.map(content => {
           
           if(content.type == "Ally" || content.type == "Player"){
-            return `<option value="${content.name}">${content.name}</option>`
+            return `<option value="${content.name}"><sup>${content.name}</sup></option>`
           }
 
         })} 
       </optgroup>
       <optgroup class="enemies" label="Enemies">
-        ${"empty"/*model.map(content => {
+      <option value="enemies">All Enemies</option>
+        ${model.fullParty.map(content => {
 
           if(content.type != "Ally" && content.type != "Player"){
-           return `<option value=${content.name}>${content.name}</option>`
+           return `<option value="${content.name}">${content.name}</option>`
           }
           
-        })*/}
+        })}
       </optgroup>
     `
   }
