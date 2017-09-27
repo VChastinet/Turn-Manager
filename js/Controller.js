@@ -56,7 +56,7 @@ class ManagerController{
     }
   }
   clearMember(element){
-    let criteria = $(element).closest("tr").find("td:first-child").text();
+    let criteria = $(element).closest("tr").find("td:first-child").html();
     
     this.party.deleteMember(criteria);
   }
