@@ -32,7 +32,6 @@
     display: none;
   }
   .char-form{
-    display: none;
     position: fixed;
     top: 30%;
   }
@@ -171,6 +170,7 @@ img{
   height: 3rem;
 }
 .char-form{
+  display: none;
   width: 20rem;
 }
 
