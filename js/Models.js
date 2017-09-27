@@ -4,12 +4,11 @@ class Character {
     this.name = name;
     this.type = type;
     this.bonus = bonus;
-    this.advantage = advantage;
-    this.init = this.initiative+Number(this.bonus);
+    this.init = this._initiative(advantage)+Number(this.bonus);
     
   }
-  get initiative(){
-    return roller(Number(this.bonus), this.advantage);
+  _initiative(advantage){
+    return roller(Number(this.bonus), advantage);
   }
 }
 
@@ -25,6 +24,51 @@ class party{
     this.characters.sort((a,b) => a.init == b.init ? b.bonus - a.bonus : b.init - a.init);
     return this.characters;
   }
+  deleteMember(criteria){
+
+    let newParty = [];
+    
+      this.characters.forEach(char => {
+          if(char.name != criteria){
+          newParty.push(char);
+        }
+      });
+        
+    this.characters = newParty;
+  }
+  deleteEnemies(){
+    let newParty = [];
+    
+      this.characters.forEach(char => {
+          if(char.type == `Player`||char.type == `Ally`){
+          newParty.push(char);
+        }
+
+      this.characters = newParty;
+      });
+
+  }
+  deleteAll(){
+    this.characters = [];
+  }
+
+  reRoll(criteria){
+
+    this.characters.forEach(char => {
+
+      if (char.name == criteria.val()){
+
+        let newAdvCheck = $(".re-roller input:checked").val();
+        let newInit = roller(Number(char.bonus), newAdvCheck);
+
+        char.init = newInit+Number(char.bonus);
+
+      }
+      
+    });
+
+  }
+
 }
 
 class Validation{

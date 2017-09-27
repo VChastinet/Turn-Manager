@@ -20,6 +20,8 @@ $(function(){
 
 let managerController = new ManagerController();
 
+$(".dropdown-button").dropdown();
+
 function formReset(){
   setTimeout(() =>{
     document.querySelector(".char-form").reset()
@@ -40,7 +42,7 @@ $("#load-party").click(() => {
   alert("let the party start.");
 });
 
-$("#re-roll").click(() => managerController.reRoll());
+$("#re-roll").click(() => managerController.reRolling());
 
 $("[value='adv']").change(function() {
     if(this.checked){
@@ -58,13 +60,13 @@ $("[value='disadv']").change(function() {
   }
 });
   
-function killSwitch(element){
+function statusSwitch(element){
       
-  if ($(element).text() == "Kill"){
-    $(element).html('<img src="/media/death.png">')
+  if ($(element).text() == "add"){
+    $(element).html('Unconscious')
     $(element).closest("tr").attr("id", "dead");
   } else{
-    $(element).html('<button class="btn waves-effect waves-light orange">Kill</button>')
+    $(element).html('<button class="btn waves-effect waves-light orange"><i class="material-icons large">add</i></button>')
     $(element).closest("tr").attr("id", "");
   }
 }

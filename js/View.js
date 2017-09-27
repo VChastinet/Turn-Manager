@@ -11,18 +11,18 @@ class ViewParty {
         <th>Name</th>
         <th>Type</th>
         <th>Initiative</th>
-        <th></th>
-        <th></th>
+        <th>Status</th>
+        <th><span>clear</span></th>
       </tr>
     </thead>
     <tbody>
-    ${model.map(content=>`
+    ${model.fullParty.map(content=>`
       <tr>
         <td>${content.name}</td>
         <td>${content.type}</td>
-        <td>${content.init} (+${content.bonus})</td>
-        <td class="kill" onclick="killSwitch(this)"><button class="btn waves-effect waves-light orange">Kill</button></td>
-        <td><i class = "remove material-icons small" onclick="managerController.deleteMember(this)">delete</i><span></td>
+        <td>${content.init}</td>
+        <td class="status" onclick="statusSwitch(this)"><button class="btn waves-effect waves-light orange"><i class="material-icons large">add</i></button></td>
+        <td><i class = "remove material-icons small" onclick="managerController.clearMember(this)">delete</i></td>
       </tr>
       `).join('')}
 
@@ -45,7 +45,7 @@ class ViewSelector{
   template(model){
       return `
       <optgroup class="allies" label="Allies">
-        ${model.map(content => {
+        ${model.fullParty.map(content => {
           
           if(content.type == "Ally" || content.type == "Player"){
             return `<option value="${content.name}">${content.name}</option>`

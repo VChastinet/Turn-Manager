@@ -14,6 +14,8 @@
 </head>
 
 <body>
+  <a id ="full-roller" class= "btn-floating btn-large waves-effect waves-light cyan accent-4 btn modal-trigger" href="roller.html"><i class="material-icons"><img src="media/dice.png"></i></a>
+  
   <main class="container">
   
     <div class="header">
@@ -24,7 +26,15 @@
     <!-- still need to implement a database fot this to work
     <a id="load-party" class="btn-floating waves-effect waves-light red tooltipped" data-position="top" data-delay="50" data-tooltip="Load Party"><i class="material-icons">play_for_work</i></a> -->
     
-    <div class="table-div"></div>
+    <!-- <div class="fixed-action-btn horizontal click-to-toggle">
+        <a class="btn waves-effect waves-light red">Clear</a>
+        <ul>
+          <li><a class="btn waves-effect waves-light red" onclick="managerController.clearAll()">Clear All</a></li>
+          <li><a class="btn waves-effect waves-light orange" onclick="managerController.clearEnemies()">Delete Enemies</a></li>
+        </ul>
+    </div> -->
+    <div class="table-div">
+    </div>
     
     <div id="re-roller" class="modal re-roller">
       <div id="re-roller-content" class="modal-content">
@@ -59,9 +69,17 @@
       <a id ="add-npc" class= "btn-floating btn-large waves-effect waves-light red"><i class="material-icons">adb</i></a>
       -->
       <a id ="add-char" class= "btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">group_add</i></a>
+      
+      <button class="remove-all btn waves-effect waves-light red dropdown-button" data-activates="dropdown1">Clear<i class="material-icons right">arrow_drop_down</i></button>
+      <ul id="dropdown1" class="dropdown-content">
+          <li><a onclick="managerController.clearAll()">Clear All</a></li>
+          <li class="divider"></li>
+          <li><a onclick="managerController.clearEnemies()">Clear Enemies</a></li>
+      </ul>
+      
       <!-- still need to implement a database fot this to work
         <a id ="save-party" class= "btn-floating btn-large waves-effect waves-light orange tooltipped" data-position="bottom" data-delay="50" data-tooltip="Save Party"><i class="material-icons">save</i></a> -->
-      <a id ="full-roller" class= "btn-floating btn-large waves-effect waves-light cyan accent-4 btn modal-trigger" href="roller.html"><i class="material-icons"><img src="media/dice.png"></i></a>
+      
       <a class="re-roller-btn btn-floating btn-large waves-effect waves-light amber modal-trigger" href="#re-roller"><i class="material-icons">autorenew</i></a>
     </div>
 
@@ -153,7 +171,8 @@
 <script type="text/javascript" src="js/Models.js"></script>
 <script type="text/javascript" src="js/Controller.js"></script>
 <script type="text/javascript" src="js/View.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/DBService.js"></script>
+<script type="text/javascript" src="js/Services.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>

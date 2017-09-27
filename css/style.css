@@ -16,6 +16,9 @@
   .container{
     width: 100%;
   }
+  form{
+    z-index: -1;
+  }
   .re-roller{    
     padding: 0 3rem 1.5rem 3rem;
     width: 15rem;
@@ -55,6 +58,11 @@
 }
 /*end media*/
 
+#full-roller{
+  position: absolute;
+  margin: 1rem;
+  right: 0;
+}
 .header{
   text-align: center;
 }
@@ -76,24 +84,37 @@
 .table{
   max-width: 40rem;
   margin-bottom: 2rem;
-  text-align: center;
 }
 th{
   font-weight: normal;
+  text-align: center;
+}
+th span{
+  visibility: hidden;
 }
 td{
   font-size: 1.3rem;
+  text-align: center;
+}
+.remove-all{
+  padding: 0.5rem;
+  line-height: 0;
+  height: 2.5rem;
+  text-align: left;
+  width: 5rem;
+
 }
 .remove{
-  color: #f44336;
+  color: #9c27b0;
   cursor: pointer;
 }
-.kill button{
+.status button{
   width: 40px;
   text-align: center;
   padding:0;
 }
-.kill img{
+.status{
+  text-align: center; 
   width: 2rem;
   cursor: pointer;
 }
