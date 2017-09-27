@@ -24,14 +24,12 @@ class party{
     this.characters.sort((a,b) => a.init == b.init ? b.bonus - a.bonus : b.init - a.init);
     return this.characters;
   }
+  
   deleteMember(criteria){
-
     this.characters = this.characters.filter(char => char.name != criteria);
   }
   deleteEnemies(){
-
     this.characters = this.characters.filter(char => char.type == "Player"||char.type == "Ally");
-
   }
   deleteAll(){
     this.characters = [];
