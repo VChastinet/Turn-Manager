@@ -26,26 +26,11 @@ class party{
   }
   deleteMember(criteria){
 
-    let newParty = [];
-    
-      this.characters.forEach(char => {
-          if(char.name != criteria){
-          newParty.push(char);
-        }
-      });
-        
-    this.characters = newParty;
+    this.characters = this.characters.filter(char => char.name != criteria);
   }
   deleteEnemies(){
-    let newParty = [];
-    
-      this.characters.forEach(char => {
-          if(char.type == `Player`||char.type == `Ally`){
-          newParty.push(char);
-        }
 
-      this.characters = newParty;
-      });
+    this.characters = this.characters.filter(char => char.type == "Player"||char.type == "Ally");
 
   }
   deleteAll(){
