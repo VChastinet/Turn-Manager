@@ -30,7 +30,7 @@ class ProxyFactory {
   }
 
   static _isFunction(func){
-    return typeof(func) == typeof(Function)
+    return typeof(func) == typeof(Function);
   }
 }
 
