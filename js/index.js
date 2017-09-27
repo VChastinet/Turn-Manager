@@ -33,24 +33,14 @@ function formReset(){
 
 $("#add-char").click(()=>$(".char-form").stop().slideToggle());
 
-// $("#save-party").click(() => {
-//   managerController.saveParty();
-//   alert("The party is resting in the tavern.");
-// });
-
-// $("#load-party").click(() => {
-//   managerController.loadParty();
-//   alert("let the party start.");
-// });
-
 $("#re-roll").click(() => managerController.reRolling());
 
 $("[value='adv']").change(function() {
-    if(this.checked){
-      $(this).closest("div").find("[value='disadv']").prop("disabled", true); 
-    } else {
-      $(this).closest("div").find("[value='disadv']").prop("disabled", false);
-    }
+  if(this.checked){
+    $(this).closest("div").find("[value='disadv']").prop("disabled", true); 
+  } else {
+    $(this).closest("div").find("[value='disadv']").prop("disabled", false);
+  }
 });
 
 $("[value='disadv']").change(function() {
@@ -60,9 +50,9 @@ $("[value='disadv']").change(function() {
     $(this).closest("div").find("[value='adv']").prop("disabled", false);
   }
 });
-  
+
 function statusSwitch(element){
-      
+  
   if ($(element).text() == "add"){
     $(element).html('Unconscious')
     $(element).closest("tr").attr("id", "dead");
@@ -71,3 +61,12 @@ function statusSwitch(element){
     $(element).closest("tr").attr("id", "");
   }
 }
+// $("#save-party").click(() => {
+//   managerController.saveParty();
+//   alert("The party is resting in the tavern.");
+// });
+
+// $("#load-party").click(() => {
+//   managerController.loadParty();
+//   alert("let the party start.");
+// });
