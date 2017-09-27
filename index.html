@@ -85,12 +85,6 @@
 
     <form class="char-form" onsubmit="managerController.inputChar(event)">
       <h5>Add Character</h5>
-      <div class="input-field char">
-        <i class="material-icons prefix">person</i>
-        <span class="validate-name badge z-depth-3" ></span>
-        <input class="name" id="char-name" type="text">
-        <label for="char-name">Character Name</label>
-      </div>
       <div class="input-field type">
         <i class="material-icons prefix">gavel</i>
         <span class="validate-type badge z-depth-3" >You must choose a type</span>
@@ -103,6 +97,12 @@
           <option value="Ranged">Ranged</option>
           <option value="Caster">Caster</option>
         </select>
+      </div>
+      <div class="input-field char">
+        <i class="material-icons prefix">person</i>
+        <span class="validate-name badge z-depth-3" ></span>
+        <input class="name" id="char-name" type="text">
+        <label for="char-name">Character Name</label>
       </div>
       
       <div class="char-advantage">
