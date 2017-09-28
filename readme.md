@@ -35,7 +35,7 @@
     <img src="https://raw.githubusercontent.com/VChastinet/Turn-Manager/master/media/Showcase/re-roll.png" alt="reroller feature screenshot" style="width: 700px"/>
 
   - It's has many types to organize the combat so i'ts clear who's who on the board.
-  - if you don't want to choose an npc name (enemy or ally) it will generate a random name.
+  - if you don't want to choose a npc name (enemy or ally) it will generate a random name.
   
     <img src="https://raw.githubusercontent.com/VChastinet/Turn-Manager/master/media/Showcase/types.png" alt="types feature screenshot" style="width: 700px"/>
 
