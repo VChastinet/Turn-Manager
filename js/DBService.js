@@ -1,3 +1,4 @@
+/*
 class HttpService{
 
   post(url, party){
@@ -45,3 +46,4 @@ console.log(data);
     });
   }
 }
+/*
