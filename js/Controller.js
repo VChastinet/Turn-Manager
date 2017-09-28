@@ -10,20 +10,26 @@ class ManagerController{
     //data binding
     this.party = new Bind(
       new party(),
-      ['add', 'deleteMember', 'deleteAll', 'deleteEnemies', 'reRoll'],
+      ['add', 'reRoll', 'deleteAll', 'deleteEnemies', 'deleteMember'],
       new ViewParty($(".table-div")),
       new ViewSelector($("#characters"))  
       );
     //end
 
-
+    ConnectionFactory
+    .getConnection()
+    .then(connection => new PartyDao(connection))
+    .then(dao => dao.showParty())
+    .then(party => party.forEach(char => 
+          this.party.add(char)))
+    .catch(error => console.log(error));
   }
 
   createChar(){
-    let type = this.type.val();
     let name = this.name.val();
-    let advCheck = $("form input:checked").val();
     let bonus = this.bonus.val();
+    let type = this.type.val();
+    let advCheck = $("form input:checked").val();
 
     if(!Validation.type(type) || !Validation.name(name, type)){
       return
@@ -32,9 +38,9 @@ class ManagerController{
       $(".create-char").click(formReset());
       return new Character(
         name,
-        bonus, 
-        advCheck,
-        type
+        bonus,
+        type, 
+        advCheck
       );
     }
   }
@@ -42,31 +48,67 @@ class ManagerController{
   inputChar(event){
     event.preventDefault();
 
-    if(!this.createChar()){
-      return
+    ConnectionFactory
+      .getConnection()
+      .then(connection => {
+        let createChar = this.createChar();
 
-    } else {
-      this.party.add(this.createChar());
-      
+        new PartyDao(connection)
+          .adiciona(createChar)
+          .then(() => {
+            this.party.add(createChar);
+          })
+      }).catch(erro => alert("The Party has fallen"));
       /*
       only when the database work online
       this.saveParty();
       this.loadParty();
       */
     }
-  }
+  
   clearMember(element){
     let criteria = $(element).closest("tr").find("td:first-child").html();
     
     this.party.deleteMember(criteria);
+
+    ConnectionFactory
+    .getConnection()
+    .then(connection => new PartyDao(connection))
+    .then(dao => {
+
+      dao.clearParty();
+
+      this.party.fullParty.forEach(char => {
+        console.log(char);
+        dao.adiciona(char); 
+        })
+    });
   }
   
   clearAll(){
     this.party.deleteAll();
+
+    ConnectionFactory
+    .getConnection()
+    .then(connection => new PartyDao(connection))
+    .then(dao => dao.clearParty())
   }
 
   clearEnemies(){
     this.party.deleteEnemies();
+
+    ConnectionFactory
+      .getConnection()
+      .then(connection => new PartyDao(connection))
+      .then(dao => {
+
+        dao.clearParty();
+
+        this.party.fullParty.forEach(char => {
+          console.log(char);
+          dao.adiciona(char)   
+          })
+      });
   }
 
   

@@ -46,3 +46,133 @@ class Bind {
     return proxy;
   }
 }
+
+//indexed DB
+var ConnectionFactory = function(){
+
+  var stores = ["party"];
+  var version = 1;
+  var dbName = "tavern";
+  
+  var connection = null;
+  
+  
+  return class ConnectionFactory{
+  
+    constructor(){
+      throw new Error("imposspivel criar instâncias desta classe");
+    }
+    
+    static _createStores(connection){
+      stores.forEach(store =>{
+        if(connection.objectStoreNames.contains(store)){
+          connection.deleteObjectStore;
+        }
+        connection.createObjectStore(store, { autoIncrement: true })
+      });
+    }
+  
+    static getConnection(){
+  
+      return new Promise((resolve, reject) => {
+        let openRequest = window.indexedDB.open(dbName, version);
+  
+        openRequest.onupgradeneeded = e => {
+  
+         ConnectionFactory._createStores(e.target.result);
+        }
+  
+        openRequest.onsuccess = e => {
+  
+          if(!connection){
+            connection = e.target.result;
+          }
+          resolve(connection);
+        }
+  
+        openRequest.onerror = e => {
+  
+          console.log(e.target.error);
+          reject(e.target.error.name);
+        }
+      });
+    }
+  }
+}();
+
+class PartyDao{
+
+  constructor(connection){
+    this._connection = connection;
+    this._store = "party"
+  }
+
+  adiciona(party){
+
+    return new Promise((resolve, reject) => {
+
+      let request = this._connection
+      .transaction([this._store], "readwrite")
+      .objectStore(this._store)
+      .add(party);
+
+      request.onsuccess = e => {
+        resolve();
+      }
+
+      request.onerror = e => {
+        console.log(e.target.error);
+        reject("the party has fallen");
+      }
+    });
+
+  }
+
+  showParty(){
+    return new Promise ((resolve, reject) => {
+
+      let cursor = this._connection
+        .transaction([this._store], "readwrite")
+        .objectStore(this._store)
+        .openCursor();
+
+      let party = [];
+
+      cursor.onsuccess = e =>{
+        let current = e.target.result;
+        if(current){
+          let data = current.value;
+          party.push(new Character(data.name, data.bonus, data.type));
+          current.continue();
+        } else{
+          resolve(party);
+        }
+      };
+      cursor.onerror = e => {
+        console.log(e.target.error);
+        reject("the party cannot be ressurected");
+      }
+    });
+  }
+
+  clearParty(){
+
+    return new Promise((resolve, reject) => {
+      
+      let request = this._connection
+      .transaction([this._store], "readwrite")
+      .objectStore(this._store)
+      .clear();
+
+      request.onsuccess = e => resolve();
+
+      request.onerror = e => {
+        console.log(e.target.error);
+        reject("something weird happend");
+      }
+    });
+
+  }
+
+}
+

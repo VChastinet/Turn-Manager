@@ -1,9 +1,9 @@
 class Character {
-  constructor(name, bonus, advantage, type){
+  constructor(name, bonus, type, advantage){
 
     this.name = name;
-    this.type = type;
     this.bonus = bonus;
+    this.type = type;
     this.init = this._initiative(advantage)+Number(this.bonus);
     
   }
