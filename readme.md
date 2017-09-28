@@ -34,7 +34,7 @@
   
     <img src="https://raw.githubusercontent.com/VChastinet/Turn-Manager/master/media/Showcase/re-roll.png" alt="reroller feature screenshot" style="width: 700px"/>
 
-  - It's has many types to organize the combat so i'ts clear who's who on the boar.
+  - It's has many types to organize the combat so i'ts clear who's who on the board.
   - if you don't want to choose an npc name (enemy or ally) it will generate a random name.
   
     <img src="https://raw.githubusercontent.com/VChastinet/Turn-Manager/master/media/Showcase/types.png" alt="types feature screenshot" style="width: 700px"/>
@@ -53,9 +53,9 @@
     <img src="https://raw.githubusercontent.com/VChastinet/Turn-Manager/master/media/Showcase/responsive%201.png" alt="responsive feature screenshot one" style="width: 350px"> <img src="https://raw.githubusercontent.com/VChastinet/Turn-Manager/master/media/Showcase/responsive%202.png" alt="responsive feature screenshot two" style="width: 350px">
 
 >special credits to [Flaticon](https://www.flaticon.com/) for the free icons in the project
-dice icon in the manager: "designed by [dimi kazak](https://www.flaticon.com/authors/dimi-kazak) from Flaticon"
-sword and shield icon: "designed by [eucalyp](https://www.flaticon.com/authors/eucalyp) from Flaticon"
-dice icon in the roller: "designed by [maxim basinski](https://www.flaticon.com/authors/maxim-basinski) from Flaticon"
+>dice icon in the manager: "designed by [dimi kazak](https://www.flaticon.com/authors/dimi-kazak) from Flaticon"
+>sword and shield icon: "designed by [eucalyp](https://www.flaticon.com/authors/eucalyp) from Flaticon"
+>dice icon in the roller: "designed by [maxim basinski](https://www.flaticon.com/authors/maxim-basinski) from Flaticon"
 
 
 *Feel free to fork this project and enhance or fix it and post a pull request with some new awesome features, use on your sessions (your GM will thank you).*
