@@ -66,52 +66,46 @@ class ManagerController{
       */
     }
   
-  clearMember(element){
-    let criteria = $(element).closest("tr").find("td:first-child").html();
     
-    this.party.deleteMember(criteria);
-
-    ConnectionFactory
-    .getConnection()
-    .then(connection => new PartyDao(connection))
-    .then(dao => {
-
-      dao.clearParty();
-
-      this.party.fullParty.forEach(char => {
-        console.log(char);
-        dao.adiciona(char); 
-        })
-    });
-  }
-  
-  clearAll(){
-    this.party.deleteAll();
-
-    ConnectionFactory
-    .getConnection()
-    .then(connection => new PartyDao(connection))
-    .then(dao => dao.clearParty())
-  }
-
-  clearEnemies(){
-    this.party.deleteEnemies();
-
-    ConnectionFactory
+    clearAll(){
+      this.party.deleteAll();
+      
+      ConnectionFactory
+      .getConnection()
+      .then(connection => new PartyDao(connection))
+      .then(dao => dao.clearParty());
+    }
+    
+    clearEnemies(){
+      this.party.deleteEnemies();
+      
+      ConnectionFactory
       .getConnection()
       .then(connection => new PartyDao(connection))
       .then(dao => {
-
+        
         dao.clearParty();
-
-        this.party.fullParty.forEach(char => {
-          console.log(char);
-          dao.adiciona(char)   
-          })
+        
+        this.party.fullParty.forEach(char => dao.adiciona(char));
       });
-  }
-
+    }
+    
+    clearMember(element){
+      let criteria = $(element).closest("tr").find("td:first-child").html();
+      
+      this.party.deleteMember(criteria);
   
+      ConnectionFactory
+      .getConnection()
+      .then(connection => new PartyDao(connection))
+      .then(dao => {
+  
+        dao.clearParty();
+  
+        this.party.fullParty.forEach(char => dao.adiciona(char));
+      });
+    }
+    
   reRolling(){
     
     this.party.reRoll(this.member);
