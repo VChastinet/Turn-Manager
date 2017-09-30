@@ -6,4 +6,7 @@ class Names{
    let name = names[randomIndex];
    return name;
   }
+  // static getNameAPI(){
+  //   return $.get("https://www.behindthename.com/api/random.php?number=1&key=vi612119", data => console.log(data));
+  // }
 }

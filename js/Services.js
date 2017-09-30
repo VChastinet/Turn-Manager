@@ -142,7 +142,7 @@ class PartyDao{
         let current = e.target.result;
         if(current){
           let data = current.value;
-          party.push(new Character(data.name, data.bonus, data.type));
+          if (data) party.push(new Character(data.name, data.bonus, data.type));
           current.continue();
         } else{
           resolve(party);

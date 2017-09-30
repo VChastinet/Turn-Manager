@@ -31,22 +31,21 @@ class ManagerController{
     let type = this.type.val();
     let advCheck = $("form input:checked").val();
 
-    if(!Validation.type(type) || !Validation.name(name, type)){
-      return
-    } else {
-      name = Validation.nameBlank(name);
-      $(".create-char").click(formReset());
-      return new Character(
-        name,
-        bonus,
-        type, 
-        advCheck
-      );
-    }
+    name = Validation.nameBlank(name);
+    $(".create-char").click(formReset());
+    return new Character(
+      name,
+      bonus,
+      type, 
+      advCheck
+    );
+
   }
 
   inputChar(event){
     event.preventDefault();
+
+    Validation.validate(this.type.val(), this.name.val());
 
     ConnectionFactory
       .getConnection()
@@ -83,9 +82,7 @@ class ManagerController{
       .getConnection()
       .then(connection => new PartyDao(connection))
       .then(dao => {
-        
         dao.clearParty();
-        
         this.party.fullParty.forEach(char => dao.adiciona(char));
       });
     }
@@ -99,9 +96,7 @@ class ManagerController{
       .getConnection()
       .then(connection => new PartyDao(connection))
       .then(dao => {
-  
         dao.clearParty();
-  
         this.party.fullParty.forEach(char => dao.adiciona(char));
       });
     }

@@ -70,6 +70,11 @@ class party{
 
 class Validation{
 
+  static validate(type, name){
+    if(!Validation._type(type) || !Validation._name(name, type)){
+      throw new Error("You must fill the field correctly");
+    }
+  }
   static nameBlank(name){
     if(!name){
       name = Names.getName()+"<sup>(NPC)</sup>";
@@ -77,7 +82,7 @@ class Validation{
     return name;
   }
 
-  static name(name, type){
+  static _name(name, type){
     if(type =="Boss" || type == "Player"){
       if(!name){
         $(".validate-name").text(`A ${type} must have a name`)
@@ -91,7 +96,7 @@ class Validation{
     }
   }
 
-  static type(type){
+  static _type(type){
     if(!type){
       $(".validate-type").slideDown(100);
       return false;
