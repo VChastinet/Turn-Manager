@@ -4,10 +4,12 @@ class ViewParty {
   }
 
   template(model){
+    let randomId;
     return `
     <table class="table striped">
     <thead>
       <tr>
+        <th>Reaction</th>
         <th>Name</th>
         <th>Type</th>
         <th>Initiative</th>
@@ -18,6 +20,10 @@ class ViewParty {
     <tbody>
     ${model.fullParty.map(content=>`
       <tr>
+        <td>
+          <input type="checkbox" id="${randomId = Math.random()}" onclick="reactionCheck(this)"/>
+          <label for="${randomId}"></label>
+        </td>
         <td>${content.name}</td>
         <td>${content.type}</td>
         <td>${content.init}</td>

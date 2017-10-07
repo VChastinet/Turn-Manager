@@ -119,9 +119,28 @@ td{
   width: 2rem;
   cursor: pointer;
 }
-#dead{
+/*
+#ally{
+  background-color: #a5d6a7;
+}
+#player{
+  background-color: #b3e5fc;
+}
+#enemy{
+  background-color: #fff9c4;
+}
+#boss{
+  background-color: #ffcdd2;
+}
+*/
+#unconscious{
   background-color: #d7ccc8;
 }
+.reaction-check{
+ opacity: 0.8;
+}
+
+
 
 .re-roller{
   max-width: 18rem;
@@ -209,19 +228,3 @@ img{
 .create-char{
   margin: 2rem 0 0 3rem;
 }
-/*
-.npc-form{
-  width: 18rem;
-}
-.create-npc{
-  margin: 2rem 0 0 3rem;
-}
-.npc-class{
-  width: 10rem;
-  height: 2rem;
-  margin-top: 2rem;
-}
-.npc-checkbox{
-  float: right;
-}
-*/

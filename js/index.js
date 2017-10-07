@@ -55,18 +55,38 @@ function statusSwitch(element){
   
   if ($(element).text() == "add"){
     $(element).html('Unconscious')
-    $(element).closest("tr").attr("id", "dead");
+    $(element).closest("tr").attr("id", "unconscious");
   } else{
     $(element).html('<button class="btn waves-effect waves-light orange"><i class="material-icons large">add</i></button>')
     $(element).closest("tr").attr("id", "");
   }
 }
-// $("#save-party").click(() => {
-//   managerController.saveParty();
-//   alert("The party is resting in the tavern.");
-// });
 
-// $("#load-party").click(() => {
-//   managerController.loadParty();
-//   alert("let the party start.");
-// });
+function reactionCheck(element){
+    $(element).closest("tr").toggleClass("reaction-check")
+}
+/* personalize style for each type
+function typeStyle(element){
+
+  let criteria = $(element).find("td:nth-child(3)").html();
+
+    switch (criteria) {
+      case "Ally":
+        $(element).attr("id", "ally");
+        break;
+      case "Player":
+        $(element).attr("id", "player");
+        break;
+      case "Boss":
+        $(element).attr("id", "boss");
+        break;
+      
+      default:
+        $(element).attr("id", "enemy");
+        break;
+    }
+  }
+}
+
+$(".create-char").click(typeStyle);
+*/

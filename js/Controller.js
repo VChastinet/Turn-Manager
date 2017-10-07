@@ -58,11 +58,7 @@ class ManagerController{
             this.party.add(createChar);
           })
       }).catch(erro => alert("The Party has fallen"));
-      /*
-      only when the database work online
-      this.saveParty();
-      this.loadParty();
-      */
+
     }
   
     
@@ -88,7 +84,7 @@ class ManagerController{
     }
     
     clearMember(element){
-      let criteria = $(element).closest("tr").find("td:first-child").html();
+      let criteria = $(element).closest("tr").find("td:nth-child(2)").html();
       
       this.party.deleteMember(criteria);
   
@@ -106,22 +102,4 @@ class ManagerController{
     this.party.reRoll(this.member);
     
   }
-      // saveParty(){
-      //   return new HttpService()
-      //     .post("/party", this.party.fullParty)
-      //     .then(() => console.log("successfully saved."))
-      //     .catch(error => alert("the dragon atacked, you can't rest now: " + error));
-      // }
-    
-      // loadParty(){
-      //   return new HttpService()
-      //   .get("/party")
-      //   .then((party) => {
-      //     this.party.characters = party
-      //     this.viewParty.update(this.party.fullParty);
-    
-      //     console.log("successfully loaded.");
-      //   })
-      //   .catch((error) => alert("The party has fallen" + error));
-      // }
 }
